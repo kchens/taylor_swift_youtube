@@ -3,6 +3,7 @@
   <% @current_user.actions.each do |action| %>
     <% if action.liked == true %>
       <p><%= "#{Product.find(action.product_id).name}" %></p>
+        <img src=<%= "/imgs/#{Product.find(action.product_id).image}" %>>
     <% end %>
   <% end %>
 </div>

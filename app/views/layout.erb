@@ -18,14 +18,14 @@
   <title>Bumble.</title>
 </head>
 <body>
-  <div>
-    <% if session[:user_id] %>
-      <a href="/logout">Log out</a>
-      <a href=<%= "/wishlist/#{session[:user_id]}" %>>Wishlist</a>
-    <% end %>
-  </div>
-
-
+  <% if session[:user_id] %>
+    <div>
+      <% if session[:user_id] %>
+        <a href="/logout">Log out</a>
+        <a href=<%= "/wishlist/#{:user_id}" %>>Wishlist</a>
+      <% end %>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 </html>
