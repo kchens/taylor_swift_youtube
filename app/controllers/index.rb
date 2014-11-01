@@ -23,7 +23,7 @@ post "/product/:product_id" do
   redirect "/product/#{@product.id + 1}"
 end
 
-get "wishlist/:user_id" do
+get "/wishlist/:user_id" do
+  current_user
   erb :"/products/wishlist"
-
 end

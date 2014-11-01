@@ -1,1 +1,8 @@
-wishlist.erb
+<div>
+  <h2>Wishlist:</h2>
+  <% @current_user.actions.each do |action| %>
+    <% if action.liked == true %>
+      <p><%= "#{Product.find(action.product_id).name}" %></p>
+    <% end %>
+  <% end %>
+</div>
