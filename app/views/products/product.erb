@@ -1,1 +1,9 @@
-product.erb
+<div>
+  <h2><%= @product.name %></h2>
+  <h3><%= @product.designer %></h3>
+  <h3>$<%= @product.price %></h3>
+  <form method="post" action=<%= "/product/#{@product.id}" %>>
+    <input type="submit" name="pass" value="Pass">
+    <input type="submit" name="like" value="Like">
+  </form>
+</div>
