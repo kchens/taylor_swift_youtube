@@ -11,21 +11,38 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title>Bumble.</title>
 </head>
 <body>
-  <% if session[:user_id] %>
-    <div>
-      <% if session[:user_id] %>
-        <a href="/logout">Log out</a>
-        <a href=<%= "/wishlist/#{:user_id}" %>>Wishlist</a>
-      <% end %>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead">
+          <div class="inner">
+            <h3 class="masthead-brand">Bumble.</h3>
+            <ul class="masthead-nav">
+              <% if session[:user_id] %>
+                <li>
+                  <a href="#">Products</a>
+                </li>
+                <li>
+                  <a href=<%= "/wishlist/#{session[:user_id]}" %>>Wishlist</a>
+                </li>
+                <li>
+                  <a href=<%= "/logout" %>>Logout</a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="inner cover">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <%= yield %>
+  </div>
 </body>
 </html>

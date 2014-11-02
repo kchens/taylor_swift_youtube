@@ -1,5 +1,7 @@
 require 'Faker'
 
+User.create(name: "Meg Sandman", email: "meg@meg.com", password: "password")
+
 5.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
 end
