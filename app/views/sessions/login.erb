@@ -1,9 +1,11 @@
-<div>
-  <h2>Welcome to Bumble.</h2>
+<div class="row" id="login-buffer">
+  <h1>Welcome to Bumble.</h2>
   <h3>Shopping as entertainment.</h3>
-  <form method="post" action="/login">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Login">
+  <form method="post" action="/login" >
+    <ul class="login">
+      <li><input class="form-control" type="email" name="email" placeholder="Email"></li>
+      <li><input class="form-control" type="password" name="password" placeholder="Password"></li>
+      <li><input class="btn btn-lg btn-default" type="submit" value="Login"></li>
+    </ul>
   </form>
 </div>
