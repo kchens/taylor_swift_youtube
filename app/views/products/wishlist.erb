@@ -1,0 +1,17 @@
+<div class="wishlist-outer">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2 test1">
+      <h2>Wishlist:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <% @current_user.actions.each do |action| %>
+      <% if action.liked == true %>
+        <p><%= "#{Product.find(action.product_id).name}" %></p>
+          <img class="wishlist-image" src=<%= "/imgs/#{Product.find(action.product_id).image}" %>>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>

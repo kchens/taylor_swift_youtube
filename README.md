@@ -1,30 +1,19 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+APIS
 
-### Purpose
-The Sinatra Skeleton:
+Amazon (Shopbop)
+Gilt Groupe
+Facebook (for user login) or OAuth
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+USER STORIES
 
-### Quickstart
+As a user I should be able to create an account and login
+As a user I should be able to see products one at a time
+As a user I should be able to "like" or "pass" on each product
+As a user I should be able to see all "liked" items in my Wishlist
 
-1.  `bundle install`
-2.  `shotgun config.ru`
-
-As needed, create models & migrations with the `rake` tasks:
-
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
-
-### Contributing
-
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
-
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
+As a user I should be able to see more detail about each product
+As a user I should be able to see multiple photos of each product
+As a user I should be able to purchase items from my wishlist
+As a user I should be able to filter the products I'm shown by category
+As a user I should only be shown products I will likely "like" (starter set, algo)
+As a user I should be able to share products I like with friends (Facebook, Twitter, email)

@@ -1,0 +1,154 @@
+
+.body {
+  width: 800px;
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+}
+.product-image {
+  position: relative;
+  margin: auto;
+  border: 1px solid;
+  max-height: 400px;
+}
+
+ /*Cover Bootstrap*/
+.masthead {
+
+}
+
+.inner {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: #333;
+  text-shadow: none;
+  border: 1px solid black;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+#product-info {
+  border: 1px solid black;
+  height: 80px;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+#name-designer{
+  display: inline-block;
+  float: left;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#price {
+  display: inline-block;
+  float: right;
+  padding-right: 10px;
+}
+
+#product-text {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+#product-designer {
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+#product-price {
+  font-size: 18px;
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  color: rgba(0,0,0, 0.6);
+}
+
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cover {
+  padding: 30px;
+  width: 500px;
+  height: 550px;
+  margin: auto;
+  outline-style: solid;
+  outline-color: rgba(0,0,0, 0.6);
+  text-align: center;
+  margin-top: 80px;
+  background-color: rgba(255,255,255, 0.6);
+  position: relative;
+}
+
+.wishlist-image {
+  height: 150px;
+}
+
+
+
+/*
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  .cover-container {
+    width: 100%;
+  }
+
+  .masthead-brand {
+    float: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .cover-container {
+    width: 700px;
+  }
+}
+
+
+
+

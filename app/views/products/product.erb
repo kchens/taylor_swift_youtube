@@ -1,0 +1,18 @@
+<div class="product-outer">
+  <div class="product-card">
+    <img id="product-image" src=<%= "/imgs/#{@product.image}" %>>
+    <div id="product-info">
+      <div id="name-designer">
+        <p id="product-text"><%= @product.name %></p>
+        <p id="product-designer"><%= @product.designer %></p>
+      </div>
+      <div id="price">
+        <p id="product-price">$<%= @product.price %></p>
+      </div>
+    </div>
+  </div>
+    <form method="post" action=<%= "/product/#{@product.id}" %>>
+      <input class="btn btn-lg btn-default" type="submit" name="pass" value="Pass">
+      <input class="btn btn-lg btn-default" type="submit" name="like" value="Like">
+    </form>
+</div>
