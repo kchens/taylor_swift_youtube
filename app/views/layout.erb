@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <!-- 
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
   <link rel="stylesheet" href="/css/normalize.css">
-
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <!--
+    application.css is where you put your styles
+  -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
   <script src="/js/application.js"></script>
 
-  <title>Bumble.</title>
+  <title></title>
 </head>
-
 <body>
-  <div class="container">
-    <div id="navbar" class="row">
-      <div class="col-md-6 col-md-offset-2">
-        <h3 class="masthead-brand">Bumble.</h3>
-        <ul class="masthead-nav">
-          <% if session[:user_id] %>
-            <li>
-              <a href="#">Products</a>
-            </li>
-            <li>
-              <a href=<%= "/wishlist/#{session[:user_id]}" %>>Wishlist</a>
-            </li>
-            <li>
-              <a href=<%= "/logout" %>>Logout</a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-
-    <!-- <div class="cover welcome"> -->
-    <div class="cover">
-      <%= yield %>
-    </div>
-
-  </div>
+  <%= yield %>
 </body>
 </html>
