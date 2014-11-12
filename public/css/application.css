@@ -40,6 +40,15 @@ html a {
   margin: 0 auto;
 }
 
+.icon-bar {
+  background-color: #9E1623;
+}
+
+button.navbar-toggle {
+  border: 1px solid #9E1623;
+  border-radius: 5px;
+}
+
 body {
   margin-top: 100px
 }

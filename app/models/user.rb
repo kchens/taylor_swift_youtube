@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :videos, through: :votes
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :name, :email, :username, :password_hash, presence: true
+  validates :name, :email, :username, :password_hash, length: { maximum: 20, minimum: 3}
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+
+  before_save { |user| user.email = email.downcase }
 
   def authenticate(password)
     self.password == password
