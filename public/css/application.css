@@ -1,0 +1,123 @@
+html {
+  font-size: 20px;
+}
+
+html a {
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+}
+
+
+
+.fa-search {
+  color: #6F96B9;
+}
+
+.fa-search:hover {
+  color: #9E1623;
+}
+
+.fa-heart {
+  color: #ECC1C7;
+}
+
+.fa-heart:hover {
+  color: #9E1623;
+}
+
+.navbar {
+  /*background-color: #F6F4F0;*/
+  color: #C0D8EB;
+  position: fixed;
+  z-index: 1000;
+  border-bottom: 2px #9E1623 solid;
+}
+
+.top-search-bar {
+  margin-top: 10px;
+}
+
+.nav > form {
+  /*background-color: orange;*/
+  margin: 0 auto;
+}
+
+body {
+  margin-top: 100px
+}
+
+body > .container > .row {
+  margin-bottom: 30px;
+}
+/***********************************
+CATEGORIES ERB
+************************************/
+.categories-text {
+  padding-top: 15%;
+  font-size:20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;s
+}
+
+
+.categories {
+  height: 165px;
+  background-color: #C0D8EB;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.categories:hover {
+  background-color: #6F96B9;
+}
+
+/***********************************
+CATEGORY ERB
+************************************/
+.category-text {
+  padding-top: 15%;
+  font-size:20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;s
+}
+
+
+.category {
+  height: 220px;
+  background-color: #C0D8EB;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.category:hover {
+  background-color: #6F96B9;
+}
+
+
+/***********************************
+VIDEO ERB
+************************************/
+
+.video-name, .video-desc, .video-link {
+  font-size:20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+.video {
+  height: 220px;
+  background-color: #C0D8EB;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.video:hover {
+  background-color: #6F96B9;
+}

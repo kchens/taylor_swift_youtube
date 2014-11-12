@@ -1,0 +1,22 @@
+<div class="container">
+
+<div class="row">
+  <div class="text-center intro col-md-8 col-md-offset-2">
+    <h1>Just Taylor Vids</h1>
+  </div>
+  <br>
+</div>
+
+<div class="row">
+  <div class="col-md-1"></div>
+
+  <% @category.each do |category| %>
+    <div class="col-md-2">
+      <a href="/category/<%= category.id %>">
+        <div class="categories text-center">
+          <div class="categories-text"><%= category.name %></div>
+       </div>
+      </a>
+    </div>
+  <% end %>
+</div>
