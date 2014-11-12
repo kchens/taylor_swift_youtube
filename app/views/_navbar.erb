@@ -23,10 +23,23 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/favorites"><i class="fa fa-heart fa-2x"></i></a></li>
+      <% if current_user %>
+        <li class="active">
+          <form class="navbar-form" action="/sessions/<%= current_user.id %>" method="post">
+            <div class="form-group">
+              <input name="_method" type="hidden" value="delete" />
+              <input class="btn" type="submit" value="Sign Out">
+            </div>
+          </form>
+        </li>
+      <% else %>
         <li class="active"><a href="/sessions/new">Sign In</a></li>
-        <li class="active"><a href="/users/new">Sign Up</a></li>
+      <% end %>
         <li><a href=""><i class="fa fa-male fa-2x"></i></a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+
+

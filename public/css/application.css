@@ -7,13 +7,11 @@ html a {
   text-decoration: none;
 }
 
-
-
-.fa-search {
+.fa-search, .btn {
   color: #6F96B9;
 }
 
-.fa-search:hover {
+.btn:hover, .fa-search:hover {
   color: #9E1623;
 }
 

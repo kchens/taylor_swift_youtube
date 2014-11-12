@@ -1,3 +1,5 @@
+####### CATEGORIES ######
+
 get '/' do    #categories route
   # renders all categories
   @category = Category.all
@@ -11,10 +13,6 @@ get '/category/:id' do
   erb :category
 end
 
-get '/video/:id' do
-  @video = Video.find(params[:id])
-  erb :video
-end
 ####### USER ######
 
 get '/users/new' do
@@ -54,12 +52,17 @@ end
 ###### USER SPECIFIC ######
 
 get '/favorites' do
-  @liked =
+  @liked
   @love
   # erb :favorites
 end
 
-###### AJAX ######
+####### VIDEO ######
+
+get '/video/:id' do
+  @video = Video.find(params[:id])
+  erb :video
+end
 
 post '/video/:id/like' do
 
