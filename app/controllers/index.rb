@@ -37,16 +37,21 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  p "in sessions" * 50
-  p @user = User.find_by(username: params[:user][:username])
-  # if @user && @user.authenticate(params[:password])
-  #   session[:user_id] = @user.id
-  #   redirect '/'
-  # else
-  #   erb :sign_in
-  # end
+  @user = User.find_by(username: params[:user][:username])
+  if @user && @user.authenticate(params[:user][:password])
+    session[:user_id] = @user.id
+    redirect '/'
+  else
+    erb :sign_in
+  end
 end
 
+delete '/sessions/:id' do
+  session[:user_id] = nil
+  redirect '/'
+end
+
+###### USER SPECIFIC ######
 
 get '/favorites' do
   @liked =
