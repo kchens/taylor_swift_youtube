@@ -5,22 +5,31 @@ class Video < ActiveRecord::Base
   has_many :category_videos
   has_many :categories, through: :category_videos
 
-  validates :href_id, uniqueness: true
+  validates :href_id, uniqueness: true, presence: true
 
   include HTTParty
   BASE_URI = "https://www.googleapis.com/youtube/v3/search"
 
   def self.get_youtube_response(query)
-    google_query = query.gsub!(' ', '+')
+    google_query = "Taylor Swift" + " " + query
+    pp "self get youtube response"
+    pp google_query = google_query.gsub!(' ', '+')
+
+    # self.parse_query(query)
 
     @response = HTTParty.get(BASE_URI, query: {
         key: ENV['API_KEY'],
         part: 'snippet',
         type: "video",
         q: "#{google_query}",
-        channelId: "UCANLZYMidaCbLQFWXBC95Jg", #VEVO channel
+        maxResults: 15,
+        channelId: "UCANLZYMidaCbLQFWXBC95Jg" #VEVO channel
       })
   end
+
+  # def self.parse_query(query)
+
+  # end
 
   def self.parse_youtube_response
     keys = %i(image_url title description href_id)
@@ -45,11 +54,11 @@ class Video < ActiveRecord::Base
     return @all_videos
   end
 
-  def self.save_to_database
-    @all_videos.each do |video_hash|
-      video = Video.new(video_hash)
-    end
-  end
+  # def self.save_to_database
+    # @all_videos.each do |video_hash|
+    #   video = Video.create(video_hash)
+    # end
+  # end
 
 end
 

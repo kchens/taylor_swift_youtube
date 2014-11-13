@@ -46,7 +46,7 @@ html a {
 
 button.navbar-toggle {
   border: 1px solid #9E1623;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
 }
 
 body {
@@ -73,11 +73,13 @@ CATEGORIES ERB
   background-color: #C0D8EB;
   padding-top: 20px;
   margin-top: 20px;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
+  border: 2px solid #9E1623;
 }
 
 .categories:hover {
   background-color: #6F96B9;
+  border: 2px solid #ECC1C7;
 }
 
 /***********************************
@@ -93,6 +95,7 @@ CATEGORY ERB
 
 
 .all-videos {
+  height: 65%;
   background-color: #C0D8EB;
   padding-top: 20px;
   margin-top: 20px;
@@ -108,7 +111,7 @@ CATEGORY ERB
 VIDEO ERB
 ************************************/
 
-.video-name, .video-desc, .video-link {
+/*.video-name, .video-desc, .video-link {
   font-size:20px;
   font-weight: 700;
   text-transform: uppercase;
@@ -120,9 +123,9 @@ VIDEO ERB
   background-color: #C0D8EB;
   padding-top: 20px;
   margin-top: 20px;
-  border-radius: 10px;
+  /*border-radius: 10px;
 }
 
 .video:hover {
   background-color: #6F96B9;
-}
+}*/

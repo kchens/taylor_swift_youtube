@@ -12,7 +12,12 @@
 #   end
 # end
 
-Category.create(name: "Hits")
+categories = ["Hits", "Live", "Country", "Pop", "Winnie The Pooh"]
+
+categories.each do |category_name|
+  Category.create(name: category_name)
+end
+
 # e1 = Category.create(name: "Country")
 # e2 = Category.create(name: "Pop")
 
