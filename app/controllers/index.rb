@@ -10,20 +10,12 @@ get '/category/:id' do
   @category = Category.find(params[:id])
 
   if @category.videos.empty?
-    p "1" * 50
     pp @all_videos = Video.get_all_video_info("#{@category.name}")
-    p "2" * 50
     @category.save_to_database(@all_videos)
-    p "3" * 50
     pp @videos = @category.videos
   else
     pp @videos = @category.videos
   end
-  # pp "-" * 50
-  # pp Video.get_all_video_info("#{@category.name}")
-  # pp "-" * 50
-  # Video.save_to_database
-  # @videos = Video.allex
   erb :all_videos
 end
 

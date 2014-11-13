@@ -6,16 +6,12 @@ class Category < ActiveRecord::Base
 
 
   def save_to_database(all_videos)
-    pp "in save to database" * 5
     all_videos.each do |video_hash|
-    pp "in video hash * 5"
       video = Video.new(video_hash)
       if video.save
-        pp "in video save" * 5
         self.videos << video
       else
-        pp video_hash
-        pp "in else" * 5
+        pp self.videos << Video.find_by(href_id: video_hash[:href_id])
       end
     end
   end
