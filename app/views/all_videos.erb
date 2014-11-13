@@ -1,16 +1,13 @@
 <div class="row">
-  <div class="col-md-1"></div>
+  <!-- <div class="col-md-1"></div> -->
 
-  <% @videos.each_with_index do |video_hash, index| %>
+  <% @videos.each do |video| %>
     <div class="col-md-3">
-      <a href="/video/<%= index + 1 %>">
-        <div class="category text-center">
-          <div class="category-text">
-            <img src="<%= video_hash[:image_url] %>">
-
-            <%= video_hash[:title] %>
-            <%= video_hash[:description] %>
-            <%= video_hash[:href_id] %>
+      <a href="/video/<%= video.id %>">
+        <div class="all-videos text-center">
+          <div class="all-videos-text">
+            <img src="<%= video.image_url %>" class="img-rounded img-responsive">
+            <%= video.title %>
           </div>
        </div>
       </a>

@@ -12,9 +12,9 @@
 #   end
 # end
 
-
-e1 = Category.create(name: "Country")
-e2 = Category.create(name: "Pop")
+Category.create(name: "Hits")
+# e1 = Category.create(name: "Country")
+# e2 = Category.create(name: "Pop")
 
 # f1 = CategoryVideo.create
 # f2 = CategoryVideo.create

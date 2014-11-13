@@ -5,17 +5,20 @@ class Video < ActiveRecord::Base
   has_many :category_videos
   has_many :categories, through: :category_videos
 
+  validates :href_id, uniqueness: true
+
   include HTTParty
   BASE_URI = "https://www.googleapis.com/youtube/v3/search"
 
   def self.get_youtube_response(query)
     google_query = query.gsub!(' ', '+')
+
     @response = HTTParty.get(BASE_URI, query: {
         key: ENV['API_KEY'],
         part: 'snippet',
         type: "video",
         q: "#{google_query}",
-        videoCaption: "closedCaption"
+        channelId: "UCANLZYMidaCbLQFWXBC95Jg", #VEVO channel
       })
   end
 
@@ -38,23 +41,20 @@ class Video < ActiveRecord::Base
   def self.get_all_video_info(query)
     self.get_youtube_response(query)
     self.parse_youtube_response
-    self.save_to_database
+    # self.save_to_database
     return @all_videos
   end
 
   def self.save_to_database
     @all_videos.each do |video_hash|
       video = Video.new(video_hash)
-      unless video.save
-        errors.add(:id, "Corrupt video data")
-      end
     end
   end
 
 end
 
 
-# https://www.googleapis.com/youtube/v3/search?part=snippet&q=Taylor+Swift&type=video&videoCaption=closedCaption&key=AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI
+# https://www.googleapis.com/youtube/v3/search?part=snippet&q=Taylor+Swift&type=video&key=AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI&channelId=UCANLZYMidaCbLQFWXBC95Jg
 
 
 # HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=Taylor+Swift&type=video&videoCaption=closedCaption&key=AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI")

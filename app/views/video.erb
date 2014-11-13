@@ -1,13 +1,11 @@
 <div class="row">
   <div class="col-md-1"></div>
-
   <div class="col-md-5">
     <a href="/video/<%= @video.id %>">
-      <div class="video text-center">
-        <div class="video-link"><%= @video.image_url %></div>
-        <div class="video-name"><%= @video.title %></div>
-        <div class="video-desc"><%= @video.description %></div>
-        <div class="video-link"><%= @video.href_id %></div>
+      <div class="video">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class=".embed-responsive-item" src="//www.youtube.com/embed/<%= @video.href_id %>?rel=0" frameborder="0" allowfullscreen></iframe>
+     </div>
      </div>
     </a>
   </div>

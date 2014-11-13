@@ -83,7 +83,7 @@ CATEGORIES ERB
 /***********************************
 CATEGORY ERB
 ************************************/
-.category-text {
+.all-videos-text {
   padding-top: 15%;
   font-size:20px;
   font-weight: 700;
@@ -92,15 +92,14 @@ CATEGORY ERB
 }
 
 
-.category {
-  height: 220px;
+.all-videos {
   background-color: #C0D8EB;
   padding-top: 20px;
   margin-top: 20px;
   border-radius: 10px;
 }
 
-.category:hover {
+.all-videos:hover {
   background-color: #6F96B9;
 }
 
@@ -118,7 +117,6 @@ VIDEO ERB
 
 
 .video {
-  height: 220px;
   background-color: #C0D8EB;
   padding-top: 20px;
   margin-top: 20px;

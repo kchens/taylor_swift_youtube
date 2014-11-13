@@ -8,8 +8,9 @@ end
 
 get '/category/:id' do
   @category = Category.find(params[:id])
-  # @videos = @category.videos
-  @videos = Video.get_all_video_info("Taylor Swift")
+  Video.get_all_video_info("Taylor Swift")
+  Video.save_to_database
+  @videos = Video.all
   erb :all_videos
 end
 
