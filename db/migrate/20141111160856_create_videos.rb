@@ -5,9 +5,9 @@ class CreateVideos < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :href_id
-      t.string :view_count
-      t.string :like_count
-      t.string :love_count
+      t.integer :view_count
+      t.integer :like_count
+      t.integer :love_count
 
 
       t.timestamps

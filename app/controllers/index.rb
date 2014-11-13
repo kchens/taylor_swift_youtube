@@ -71,9 +71,25 @@ get '/video/:id' do
 end
 
 post '/video/:id/like' do
-
+  @video = Video.find(params[:id])
+  @video.increment!(:like_count)
+  @new_like_count = @video.like_count
+  if request.xhr?
+    content_type :json
+    @new_like_count.to_json
+  else
+    pp status 500
+  end
 end
 
 post '/video/:id/love' do
-
+  @video = Video.find(params[:id])
+  @video.increment!(:love_count)
+  @new_love_count = @video.love_count
+  if request.xhr?
+    content_type :json
+    @new_love_count.to_json
+  else
+    pp status 500
+  end
 end

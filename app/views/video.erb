@@ -7,4 +7,13 @@
      </div>
     </a>
   </div>
+  <div class="col-md-5 vid-info">
+    View Count <%= @video.view_count %>
+    <br>
+    Like Count <a id="like-video" href="/video/<%= @video.id%>/like"><i class="fa fa-thumbs-up fa-lg"><%= @video.like_count %></i></a>
+    <br>
+    Love Count
+    <a id="love-video" href="/video/<%= @video.id%>/love"><i class="fa fa-heart fa-lg"><%= @video.love_count %></i></a>
+    <br>
+  </div>
 </div>
