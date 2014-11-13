@@ -10,11 +10,11 @@ get '/category/:id' do
   @category = Category.find(params[:id])
 
   if @category.videos.empty?
-    pp @all_videos = Video.get_all_video_info("#{@category.name}")
+    @all_videos = Video.get_all_video_info("#{@category.name}")
     @category.save_to_database(@all_videos)
-    pp @videos = @category.videos
+    @videos = @category.videos
   else
-    pp @videos = @category.videos
+    @videos = @category.videos
   end
   erb :all_videos
 end
