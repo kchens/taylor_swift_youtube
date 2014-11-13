@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-1"></div>
+
+  <% @videos.each_with_index do |video_hash, index| %>
+    <div class="col-md-3">
+      <a href="/video/<%= index + 1 %>">
+        <div class="category text-center">
+          <div class="category-text">
+            <img src="<%= video_hash[:image_url] %>">
+
+            <%= video_hash[:title] %>
+            <%= video_hash[:description] %>
+            <%= video_hash[:href_id] %>
+          </div>
+       </div>
+      </a>
+    </div>
+  <% end %>
+</div>

@@ -4,7 +4,7 @@ class Vote < ActiveRecord::Base
 
   validates :user_id, :video_id, presence: true
 
-  #little unnecessary
+  #little unnecessary, but wanted to try another customer validation
   before_save :liked_or_loved
 
   def liked_or_loved
