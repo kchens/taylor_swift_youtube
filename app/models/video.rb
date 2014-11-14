@@ -14,11 +14,8 @@ class Video < ActiveRecord::Base
   #Refactor un-DRY Model Later
   def self.search(query)
     google_query = "Taylor Swift" + " " + query
-    pp google_query = google_query.gsub!(' ', '+')
-    p "ENVIRONMENT KEY" * 5
-    pp ENV['API_KEY']
-    p "RESPONSE IN SEARCH" * 5
-    pp @response = HTTParty.get(BASE_URI + "search", query: {
+    google_query = google_query.gsub!(' ', '+')
+    @response = HTTParty.get(BASE_URI + "search", query: {
         key: ENV['API_KEY'],
         part: 'snippet',
         type: "video",
@@ -29,8 +26,7 @@ class Video < ActiveRecord::Base
 
   def self.get_youtube_response(query)
     google_query = "Taylor Swift" + " " + query
-    pp google_query = google_query.gsub!(' ', '+')
-    pp ENV['API_KEY']
+    google_query = google_query.gsub!(' ', '+')
     @response = HTTParty.get(BASE_URI + "search", query: {
         key: ENV['API_KEY'],
         part: 'snippet',
@@ -75,13 +71,10 @@ class Video < ActiveRecord::Base
 
   def self.get_all_video_info(query, search = nil)
     if search == true
-      p "in if true" * 10
       self.search(query)
     else
-      p "in else" * 10
       self.get_youtube_response(query)
     end
-    p "out of if" * 10
     self.parse_youtube_response
     self.add_video_stats(@all_videos)
   end
