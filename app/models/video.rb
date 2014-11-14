@@ -14,8 +14,11 @@ class Video < ActiveRecord::Base
   #Refactor un-DRY Model Later
   def self.search(query)
     google_query = "Taylor Swift" + " " + query
-    google_query = google_query.gsub!(' ', '+')
-    @response = HTTParty.get(BASE_URI + "search", query: {
+    pp google_query = google_query.gsub!(' ', '+')
+    p "ENVIRONMENT KEY" * 5
+    pp ENV['API_KEY']
+    p "RESPONSE IN SEARCH" * 5
+    pp @response = HTTParty.get(BASE_URI + "search", query: {
         key: ENV['API_KEY'],
         part: 'snippet',
         type: "video",
