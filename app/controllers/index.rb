@@ -1,6 +1,6 @@
-after do
-  ActiveRecord::Base.clear_active_connections!
-end
+# after do
+#   ActiveRecord::Base.clear_active_connections!
+# end
 
 ####### CATEGORIES ######
 
