@@ -150,6 +150,8 @@ VIDEO ERB
 
 .video-info-box {
   margin-left: 0.5%;
+  background-color: white;
+  border-top: 2px #9E1623 solid;
 }
 
 .fa-heart {

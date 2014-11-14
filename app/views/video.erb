@@ -7,18 +7,19 @@
      </div>
     </a>
   </div>
-  <div class="row video-info-box">
-    <div class='col-md-offset-1 col-md-5'>
-      <h5>Title</h5>
-      <%= @video.title %>
-      <h5>Description</h5>
-      <%= @video.description %>
-    </div>
-    <div class='col-md-offset-2 col-md-3'>
-      <h4><%= add_commas(@video.view_count) %> Views</h4>
-      <a id="like-video" href="/video/<%= @video.id%>/like"><i class="fa fa-thumbs-up fa-lg"><%= add_commas(@video.like_count) %> </i></a>
-      <a id="love-video" href="/video/<%= @video.id%>/love"><i class="fa fa-heart fa-lg"> <%= add_commas(@video.love_count) %></i></a>
-    </div>
+</div>
 
+<div class="row video-info-box">
+  <div class='col-md-offset-1 col-md-5'>
+    <h5>Title</h5>
+    <%= @video.title %>
+    <h5>Description</h5>
+    <%= @video.description %>
   </div>
+  <div class='col-md-offset-2 col-md-3'>
+    <h4><%= add_commas(@video.view_count) %> Views</h4>
+    <a id="like-video" href="/video/<%= @video.id%>/like"><i class="fa fa-thumbs-up fa-lg"><%= add_commas(@video.like_count) %> </i></a>
+    <a id="love-video" href="/video/<%= @video.id%>/love"><i class="fa fa-heart fa-lg"> <%= add_commas(@video.love_count) %></i></a>
+  </div>
+
 </div>
