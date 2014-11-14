@@ -26,7 +26,8 @@ class Video < ActiveRecord::Base
 
   def self.get_youtube_response(query)
     google_query = "Taylor Swift" + " " + query
-    google_query = google_query.gsub!(' ', '+')
+    pp google_query = google_query.gsub!(' ', '+')
+    pp ENV['API_KEY']
     @response = HTTParty.get(BASE_URI + "search", query: {
         key: ENV['API_KEY'],
         part: 'snippet',
@@ -38,7 +39,7 @@ class Video < ActiveRecord::Base
   end
 
   def self.parse_youtube_response
-    keys = %i(image_url title description href_id)
+    pp keys = %i(image_url title description href_id)
     values = []
     @all_videos = []
     pp @response
