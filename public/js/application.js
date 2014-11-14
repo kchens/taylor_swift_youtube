@@ -30,6 +30,7 @@ function incrementLikeLove(e) {
     function() {
       $("#t-vid").attr("src", "//www.youtube.com/embed/PAhAz7JU0dg?rel=0")
     }, 2000);
+    alert("You need to calm down. Take some Swiftamine.")
   });
   ajaxRequest.fail( function(e) {
     if (id === "like-video") {
