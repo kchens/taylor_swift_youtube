@@ -39,7 +39,7 @@ class Video < ActiveRecord::Base
   end
 
   def self.parse_youtube_response
-    pp keys = %i(image_url title description href_id)
+    keys = %i(image_url title description href_id)
     values = []
     @all_videos = []
     pp @response
@@ -72,10 +72,13 @@ class Video < ActiveRecord::Base
 
   def self.get_all_video_info(query, search = nil)
     if search == true
+      p "in if true" * 10
       self.search(query)
     else
+      p "in else" * 10
       self.get_youtube_response(query)
     end
+    p "out of if" * 10
     self.parse_youtube_response
     self.add_video_stats(@all_videos)
   end
