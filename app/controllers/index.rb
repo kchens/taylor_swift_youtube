@@ -54,27 +54,29 @@ get '/sessions/new' do
 end
 
 get '/facebook/auth' do
-  #replace state with helper method that generates hex string
-  redirect("https://www.facebook.com/dialog/oauth?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code")
+  @state = User.create_api_state
+  redirect("https://www.facebook.com/dialog/oauth?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code&scope=email&state=#{@state}")
 end
 
 get '/facebook/code' do
   fb_code = params['code']
-  # if params['state'] == 'banana'
-   # Create new user????
-   # if this facebook_id is allready in
-  response = HTTParty.get("https://graph.facebook.com/oauth/access_token?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code&client_secret=#{ENV['FB_SECRET']}&code=#{fb_code}")
+  if params['state'] == User.get_api_state
+    response = HTTParty.get("https://graph.facebook.com/oauth/access_token?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code&client_secret=#{ENV['FB_SECRET']}&code=#{fb_code}")
   temp = response.split("&")
   keys, values = [], []
-
   temp.each do |string|
     b = string.split("=")
-    keys << b[0].to_sym
+    keys << b[0]
     values << b[1]
   end
-  Hash[keys.zip(values)]
 
-  # end
+  pp keys
+  pp values
+  pp Hash[keys.zip(values)]
+
+   # Create new user????
+   # if this facebook_id is allready in
+  end
 end
 
 post '/sessions' do

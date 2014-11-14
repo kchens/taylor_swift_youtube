@@ -80,12 +80,12 @@ CATEGORIES ERB
   font-size:20px;
   font-weight: 700;
   text-transform: uppercase;
+  color: #9E1623;
 }
 
 
 .categories {
   height: 165px;
-  color: #9E1623;
   background-color: #CDCAEA;
   padding-top: 20px;
   margin-top: 20px;
@@ -101,22 +101,23 @@ CATEGORIES ERB
 }
 
 /***********************************
-CATEGORY ERB
+ALL_VIDEOS ERB
 ************************************/
 .all-videos-text {
   text-transform: uppercase;
-  color: white;
+  color: #9E1623;
 }
 
 
 .all-videos {
-  background-color: #C0D8EB;
+  background-color: #CDCAEA;
   margin-top: 10%;
   border-radius: 10px;
 }
 
 .all-videos:hover {
-  background-color: #6F96B9;
+  color: white;
+  background-color: #9593AA;
 }
 
 
@@ -142,6 +143,10 @@ VIDEO ERB
 .video:hover {
   background-color: #6F96B9;
 }*/
+
+.video {
+  background-color: white;
+}
 
 .video-info-box {
   margin-left: 0.5%;

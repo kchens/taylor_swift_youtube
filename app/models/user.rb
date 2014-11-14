@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def self.create_api_state
+    @state = SecureRandom.hex
+  end
+
+  def self.get_api_state
+    @state
+  end
+
 end
