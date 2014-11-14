@@ -1,17 +1,29 @@
-<form action="/sessions" role="form" method="post">
-  <div class="form-group">
-    <label for="exampleInputUsername1">Username</label>
-    <input type="username" class="form-control" id="exampleInputUsername1" placeholder="Enter username" name="user[username]">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="user[password">
-  </div>
-  <button type="submit" class="btn btn-default">Sign in</button>
-</form>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <%= erb :_errors %>
 
-<div class='row'>
-  <div class="col-md-offset-1 col-md-1">
-    <a href="/users/new">Sign Up</a>
+    <form action="/sessions" role="form" method="post">
+      <div class="form-group">
+        <label for="exampleInputUsername1">Username</label>
+        <input type="username" class="form-control" id="exampleInputUsername1" placeholder="Enter username" name="user[username]">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="user[password">
+      </div>
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </form>
+  </div>
+  <div class='row'>
+    <div class="col-md-offset-4 col-md-4">
+      <a href="/facebook/auth">Login With Facebook</a>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col-md-offset-4 col-md-4">
+      <a href="/users/new">Sign Up</a>
+    </div>
   </div>
 </div>
+
+

@@ -1,0 +1,10 @@
+<div class="errors">
+  <% if @errors.class == Array %>
+    <% @errors.each do |error| %>
+      <%= error %>
+      <br>
+    <% end %>
+  <% else %>
+    <%= @errors %>
+  <% end %>
+</div>

@@ -3,7 +3,8 @@ $(document).ready(function() {
 });
 
 function bindEvents() {
-  $(".vid-info").on("click", incrementLikeLove);
+  $("#like-video").on("click", incrementLikeLove);
+  $("#love-video").on("click", incrementLikeLove);
 }
 
 function incrementLikeLove(e) {

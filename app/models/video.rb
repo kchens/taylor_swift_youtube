@@ -10,6 +10,20 @@ class Video < ActiveRecord::Base
   include HTTParty
   BASE_URI = "https://www.googleapis.com/youtube/v3/"
 
+
+  #Refactor un-DRY Model Later
+  def self.search(query)
+    google_query = "Taylor Swift" + " " + query
+    google_query = google_query.gsub!(' ', '+')
+    @response = HTTParty.get(BASE_URI + "search", query: {
+        key: ENV['API_KEY'],
+        part: 'snippet',
+        type: "video",
+        q: "#{google_query}",
+        maxResults: 8,
+      })
+  end
+
   def self.get_youtube_response(query)
     google_query = "Taylor Swift" + " " + query
     google_query = google_query.gsub!(' ', '+')
@@ -55,30 +69,14 @@ class Video < ActiveRecord::Base
     return @all_videos
   end
 
-  def self.get_all_video_info(query)
-    self.get_youtube_response(query)
+  def self.get_all_video_info(query, search = nil)
+    if search == true
+      self.search(query)
+    else
+      self.get_youtube_response(query)
+    end
     self.parse_youtube_response
     self.add_video_stats(@all_videos)
   end
 
 end
-
-
-# https://www.googleapis.com/youtube/v3/search?part=snippet&q=Taylor+Swift&type=video&key=AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI&channelId=UCANLZYMidaCbLQFWXBC95Jg
-
-
-# HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q=Taylor+Swift&type=video&videoCaption=closedCaption&key=AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI")
-
-# HTTParty.get("https://www.googleapis.com/youtube/v3/search", query: {key: 'AIzaSyDYVdlJjPuCz5Nk8ruI_x7Vg-HVgLiuJrI', part: 'snippet', type: "video", q: "Taylor+Swift", videoCaption: "closedCaption"})
-
-
-# VIDEO ID
-# "items" => array of maxResults => "id" => "videoId"
-
-# VIDEO INFO
-# key="items"
-# array of maxResult hashes
-# => "snippet" hash
-# *** "title" ***
-# *** "description" ***
-#       "thumbnail" =>"high" => "url"

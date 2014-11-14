@@ -14,9 +14,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <form class="navbar-form">
+          <form class="navbar-form" method="get" action="/search">
               <div class="form-group">
-                <input type="text" class="form-control top-search-bar" placeholder="Search">
+                <input type="text" class="form-control top-search-bar" placeholder="Search" name="query">
                 <label for="mySubmit" class="btn"><i class="fa fa-search fa-lg"></i></label>
                 <input id="mySubmit" type="submit" value="Go" class="hidden" />
               </div>
@@ -37,7 +37,7 @@
         <%else%>
           <li class="active"><a href="/sessions/new">Sign In</a></li>
         <%end%>
-        <li><a href=""><i class="fa fa-male fa-2x"></i></a></li>
+        <li><a href=""><i class="fa fa-user fa-2x"></i></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

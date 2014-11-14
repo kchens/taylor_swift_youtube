@@ -1,10 +1,15 @@
 html {
   font-size: 20px;
+  background-image: url("/tswift-1989.png");
 }
 
 html a {
   font-family: 'Lato', sans-serif;
   text-decoration: none;
+}
+
+body {
+  background-color: transparent;
 }
 
 .fa-search, .btn {
@@ -15,11 +20,11 @@ html a {
   color: #9E1623;
 }
 
-.fa-heart {
+.navbar .fa-heart {
   color: #ECC1C7;
 }
 
-.fa-heart:hover {
+.navbar .fa-heart:hover {
   color: #9E1623;
 }
 
@@ -32,7 +37,7 @@ html a {
 }
 
 .top-search-bar {
-  margin-top: 10px;
+  margin-top: 4%;
 }
 
 .nav > form {
@@ -54,11 +59,18 @@ button.navbar-toggle {
 }
 
 body {
-  margin-top: 100px
+  margin-top: 10%;
 }
 
 body > .container > .row {
   margin-bottom: 30px;
+}
+
+/***********************************
+SIGNIN SINGUP ERRORS
+************************************/
+.errors {
+  background-color: #FBF6BE;
 }
 /***********************************
 CATEGORIES ERB
@@ -68,20 +80,22 @@ CATEGORIES ERB
   font-size:20px;
   font-weight: 700;
   text-transform: uppercase;
-  color: white;s
 }
 
 
 .categories {
   height: 165px;
-  background-color: #C0D8EB;
+  color: #9E1623;
+  background-color: #CDCAEA;
   padding-top: 20px;
   margin-top: 20px;
   /*border-radius: 10px;*/
   border: 2px solid #9E1623;
+  opacity: 0.5;
 }
 
 .categories:hover {
+  color: white;
   background-color: #6F96B9;
   border: 2px solid #ECC1C7;
 }
@@ -90,19 +104,14 @@ CATEGORIES ERB
 CATEGORY ERB
 ************************************/
 .all-videos-text {
-  padding-top: 15%;
-  font-size:20px;
-  font-weight: 700;
   text-transform: uppercase;
-  color: white;s
+  color: white;
 }
 
 
 .all-videos {
-  height: 65%;
   background-color: #C0D8EB;
-  padding-top: 20px;
-  margin-top: 20px;
+  margin-top: 10%;
   border-radius: 10px;
 }
 
@@ -133,3 +142,15 @@ VIDEO ERB
 .video:hover {
   background-color: #6F96B9;
 }*/
+
+.video-info-box {
+  margin-left: 0.5%;
+}
+
+.fa-heart {
+  color: #9E1623;
+}
+
+.fa-heart:hover {
+  color: #84121D;
+}

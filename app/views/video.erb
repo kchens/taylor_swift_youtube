@@ -1,27 +1,23 @@
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-5">
+  <div class="col-md-10">
     <a href="/video/<%= @video.id %>">
       <div class="video embed-responsive embed-responsive-16by9">
         <iframe class=".embed-responsive-item" src="//www.youtube.com/embed/<%= @video.href_id %>?rel=0" frameborder="0" allowfullscreen></iframe>
      </div>
     </a>
   </div>
-  <div class="col-md-5 vid-info">
-    View Count <%= @video.view_count %>
-    <br>
-    Like Count <a id="like-video" href="/video/<%= @video.id%>/like"><i class="fa fa-thumbs-up fa-lg"><%= @video.like_count %></i></a>
-    <br>
-    Love Count
-    <a id="love-video" href="/video/<%= @video.id%>/love"><i class="fa fa-heart fa-lg"><%= @video.love_count %></i></a>
-    <br>
+  <div class="row video-info-box">
+    <div class='col-md-offset-1 col-md-5'>
+      <h5>Title</h5>
+      <%= @video.title %>
+      <h5>Description</h5>
+      <%= @video.description %>
+    </div>
+    <div class='col-md-offset-2 col-md-3'>
+      <h4><%= add_commas(@video.view_count) %> Views</h4>
+      <a id="like-video" href="/video/<%= @video.id%>/like"><i class="fa fa-thumbs-up fa-lg"><%= add_commas(@video.like_count) %> </i></a>
+      <a id="love-video" href="/video/<%= @video.id%>/love"><i class="fa fa-heart fa-lg"> <%= add_commas(@video.love_count) %></i></a>
+    </div>
   </div>
-
-<!-- <div id="funny-response-template" class="col-md-3">
-  <h4>Are you sure a heart encapsulates your love for TSwizzle?</h4>
-</div> -->
-
-
 </div>
-
-
