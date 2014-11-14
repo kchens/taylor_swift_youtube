@@ -26,6 +26,10 @@ function incrementLikeLove(e) {
   });
   ajaxRequest.done( function(e) {
     $thumbOrHeart.text(e)
+    setTimeout(
+    function() {
+      $("#t-vid").attr("src", "//www.youtube.com/embed/PAhAz7JU0dg?rel=0")
+    }, 2000);
   });
   ajaxRequest.fail( function(e) {
     if (id === "like-video") {
