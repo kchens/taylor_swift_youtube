@@ -41,7 +41,7 @@ class Video < ActiveRecord::Base
     keys = %i(image_url title description href_id)
     values = []
     @all_videos = []
-    pp @response
+    @response
     @response["items"].each do |video_json_hash|
       values << video_json_hash["snippet"]["thumbnails"]["high"]["url"] #image_urls
       values << video_json_hash["snippet"]["title"] #titles
