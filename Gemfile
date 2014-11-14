@@ -16,19 +16,18 @@ gem 'rake'
 gem 'rspec'
 
 gem 'shotgun'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'dotenv'
 gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
-  gem 'rspec'
   gem 'capybara'
+  gem 'faker'
+  gem 'did_you_mean'
 end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
-  gem 'did_you_mean'
 end

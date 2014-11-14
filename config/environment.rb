@@ -13,7 +13,6 @@ require 'pathname'
 
 require 'pg'
 require 'pp'
-require 'faker'
 require 'active_record'
 require 'logger'
 
