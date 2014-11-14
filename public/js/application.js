@@ -29,7 +29,7 @@ function incrementLikeLove(e) {
     setTimeout(
     function() {
       $("#t-vid").attr("src", "//www.youtube.com/embed/PAhAz7JU0dg?rel=0")
-    }, 2000);
+    }, 1000);
     alert("You need to calm down. Take some Swiftamine.")
   });
   ajaxRequest.fail( function(e) {
