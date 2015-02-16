@@ -3,7 +3,7 @@ module Facebook
   def self.make_auth_request(fb_code)
     @authorization_request_obj = HTTParty.get("https://graph.facebook.com/oauth/access_token?" +
       "client_id=#{ENV['FB_ID']}" +
-      "&redirect_uri=http://localhost:9393/facebook/code" +
+      "&redirect_uri=http://taylortube2.herokuapp.com/facebook/code" +
       "&client_secret=#{ENV['FB_SECRET']}" +
       "&code=#{fb_code}")
   end
