@@ -66,7 +66,7 @@ get '/facebook/auth' do
     session[:state] = User.create_api_state #prevent CSRF
     redirect "https://www.facebook.com/dialog/oauth?" +
       "client_id=#{ENV['FB_ID']}" +
-      "&redirect_uri=http://taylortube2.herokuapp.com/facebook/code&scope=email" +
+      "&redirect_uri=http://www.taylortube2.herokuapp.com/facebook/code&scope=email" +
       "&state=#{session[:state]}"
   end
 end
