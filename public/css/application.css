@@ -1,11 +1,16 @@
 html {
   font-size: 20px;
   background-image: url("/tswift-1989.png");
+  background-position: center top;
 }
 
 html a {
   font-family: 'Lato', sans-serif;
   text-decoration: none;
+}
+
+h1, h2 {
+  color: #9E1623;
 }
 
 body {

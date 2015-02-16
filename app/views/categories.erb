@@ -10,7 +10,28 @@
 <div class="row">
   <div class="col-md-1"></div>
 
-  <% @category.each do |category| %>
+  <% @original_categories.each do |o_category| %>
+    <div class="col-md-2">
+      <a href="/category/<%= o_category.id %>">
+        <div class="categories text-center">
+          <div class="categories-text"><%= o_category.name %></div>
+       </div>
+      </a>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="row">
+  <div class="text-center intro col-md-8 col-md-offset-2">
+    <h2>Worldwide Searched Videos</h2>
+  </div>
+  <br>
+</div>
+
+<div class="row">
+
+  <% @categories.each do |category| %>
     <div class="col-md-2">
       <a href="/category/<%= category.id %>">
         <div class="categories text-center">

@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :videos, through: :votes
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :name, :email, :username, :password_hash, presence: true
-  validates :name, :email, :username, length: { maximum: 20, minimum: 3}
+  validates :first_name, :email, :username, :password_hash, presence: true
+  validates :first_name, :email, :username, length: { minimum: 3}
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   before_save { |user| user.email = email.downcase }
@@ -24,12 +24,27 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+
   def self.create_api_state
     @state = SecureRandom.hex
   end
 
-  def self.get_api_state
-    @state
+  def self.exists?(id)
+    User.find_by(fb_uuid: id) ? true : false
+  end
+
+  def self.create_with_facebook(info)
+    new_user = self.create(
+      fb_uuid:        info["id"],
+      first_name:     info["first_name"],
+      last_name:      info["last_name"],
+      username:       info["email"],
+      email:          info["email"],
+      password_hash:  SecureRandom.hex,
+      access_token:   info["access_token"],
+      expires:        info["expires"]
+    )
+    pp new_user.errors.full_messages
   end
 
 end

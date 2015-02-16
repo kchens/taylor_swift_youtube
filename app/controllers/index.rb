@@ -1,11 +1,10 @@
-after do
-  ActiveRecord::Base.clear_active_connections!
-end
+require_relative '../lib/facebook'
 
 ####### CATEGORIES ######
 
 get '/' do
-  @category = Category.all
+  @categories = Category.all
+  @original_categories = @categories.to_a.shift(5)
   erb :categories
 end
 
@@ -22,12 +21,11 @@ get '/category/:id' do
   erb :all_videos
 end
 
-#Refactor so /search renders, but doesn't save to the database
 get '/search' do
-  search = true
+  start_search = true
   @searched_category = Category.new(name: params[:query])
   if @searched_category.save
-    @all_videos = Video.get_all_video_info("#{@searched_category.name}", search)
+    @all_videos = Video.get_all_video_info("#{@searched_category.name}", start_search)
     @searched_category.save_to_database(@all_videos)
     @videos = @searched_category.videos
   end
@@ -44,11 +42,16 @@ post '/users' do
   @user = User.new(params[:user])
   if @user.save
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/user/' + @user.id.to_s
   else
     @errors = @user.errors.full_messages
     erb :sign_up
   end
+end
+
+get '/user/:id' do
+  @user = User.find(params[:id])
+  erb :user
 end
 
 ####### SIGN IN, SIGN OUT ######
@@ -57,28 +60,35 @@ get '/sessions/new' do
 end
 
 get '/facebook/auth' do
-  @state = User.create_api_state
-  redirect("https://www.facebook.com/dialog/oauth?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code&scope=email&state=#{@state}")
+  if current_user
+    redirect '/'
+  else
+    session[:state] = User.create_api_state #prevent CSRF
+    redirect "https://www.facebook.com/dialog/oauth?" +
+      "client_id=#{ENV['FB_ID']}" +
+      "&redirect_uri=http://localhost:9393/facebook/code&scope=email" +
+      "&state=#{session[:state]}"
+  end
 end
 
 get '/facebook/code' do
   fb_code = params['code']
-  if params['state'] == User.get_api_state
-    response = HTTParty.get("https://graph.facebook.com/oauth/access_token?client_id=#{ENV['FB_ID']}&redirect_uri=http://localhost:9292/facebook/code&client_secret=#{ENV['FB_SECRET']}&code=#{fb_code}")
-  temp = response.split("&")
-  keys, values = [], []
-  temp.each do |string|
-    b = string.split("=")
-    keys << b[0]
-    values << b[1]
-  end
 
-  pp keys
-  pp values
-  pp Hash[keys.zip(values)]
+  if params['state'] == session[:state]
+    user_info = Facebook::User.get_user_info(fb_code)
+    user_id = user_info['id']
 
-   # Create new user????
-   # if this facebook_id is allready in
+    if User.exists?(user_id) && user_info['expiration_seconds'] > 0
+      "User already in database"
+      user = User.find_by(fb_uuid: user_id)
+    else
+      user = User.create_with_facebook(user_info)
+    end
+
+    session[:user_id] = user ? user.id : current_user.id
+    redirect '/user/' + "#{session[:user_id]}"
+  else
+    "CSRF ATTACK!"
   end
 end
 
@@ -113,6 +123,13 @@ get '/video/:id' do
   erb :video
 end
 
+#####To Adhere to Convention:  Helper Methods Inteded For Views#########
+def controller_add_commas(integer)
+  integer.to_s.reverse.scan(/(?:\d*\.)?\d{1,3}-?/).join(',').reverse
+end
+
+########################################################
+
 post '/video/:id/like' do
   @video = Video.find(params[:id])
   @video.increment!(:like_count)
@@ -135,9 +152,4 @@ post '/video/:id/love' do
   else
     pp status 500
   end
-end
-
-#####To Adhere to Convention:  Helper Methods Inteded For Views#########
-def controller_add_commas(integer)
-  integer.to_s.reverse.scan(/(?:\d*\.)?\d{1,3}-?/).join(',').reverse
 end

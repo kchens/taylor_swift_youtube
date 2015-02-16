@@ -18,12 +18,14 @@ require 'logger'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
+require "debugger" if development?
 
 require 'erb'
 require 'bcrypt'
 require 'dotenv'
 require 'httparty'
 require 'pp'
+require 'cgi'
 
 
 Dotenv.load

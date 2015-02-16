@@ -69,8 +69,8 @@ class Video < ActiveRecord::Base
     return @all_videos
   end
 
-  def self.get_all_video_info(query, search = nil)
-    if search == true
+  def self.get_all_video_info(query, start_search = nil)
+    if start_search == true
       self.search(query)
     else
       self.get_youtube_response(query)

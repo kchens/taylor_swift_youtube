@@ -10,5 +10,3 @@ class CreateVotes < ActiveRecord::Migration
     end
   end
 end
-
-

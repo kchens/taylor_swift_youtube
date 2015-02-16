@@ -25,7 +25,7 @@ function incrementLikeLove(e) {
     data: data
   });
   ajaxRequest.done( function(e) {
-    $thumbOrHeart.text(e)
+    $thumbOrHeart.text(e);
     setTimeout(
     function() {
       $("#t-vid").attr("src", "//www.youtube.com/embed/PAhAz7JU0dg?rel=0")
